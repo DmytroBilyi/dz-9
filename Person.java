@@ -2,27 +2,11 @@ public class Person {
     String firstName;
     String lastName;
     int age;
-    String partner;
 
-    boolean isRetired(){
-        if(this.age>=100) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-    String registerPartnership() {
-        return null;
-    }
-    String deregisterPartnership() {
-        return this.lastName;
-    }
-
-    public Person(String firstName, String lastName, int age, String partner) {
+    public Person(String firstName, String lastName, int age) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
-        this.partner = partner;
     }
 
     public String getFirstName() {
@@ -49,11 +33,8 @@ public class Person {
         this.age = age;
     }
 
-    public String getPartner() {
-        return partner;
+    boolean isRetired(){
+        return this.age >= 100;
     }
 
-    public void setPartner(String partner) {
-        this.partner = partner;
-    }
 }
