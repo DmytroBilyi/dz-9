@@ -1,9 +1,13 @@
+
+
 public class Woman extends Person {
     private Man partner;
-    private Man previousLastName;
+    private String maidenName;
 
-    public Woman(String firstName, String lastName, int age) {
+
+    public Woman(String firstName, String lastName, int age, String maidenName) {
         super(firstName, lastName, age);
+        this.maidenName = maidenName;
     }
 
     public Man getPartner() {
@@ -13,6 +17,7 @@ public class Woman extends Person {
     public void setPartner(Man partner) {
         this.partner = partner;
     }
+
     @Override
     boolean isRetired() {
         return getAge() >= 60;
@@ -31,10 +36,28 @@ public class Woman extends Person {
     public void deregisterPartnership(boolean returnToPreviousLastName) {
         if (this.partner != null) {
             if (returnToPreviousLastName) {
-                this.setLastName(this.getLastName());
+                this.setLastName(this.getMaidenName());
             }
             this.partner.setPartner(null);
             this.setPartner(null);
         }
+    }
+    public String getMaidenName() {
+        return maidenName;
+    }
+
+    public void setMaidenName(String maidenName) {
+        this.maidenName = maidenName;
+    }
+
+    @Override
+    public String toString() {
+        return "Woman{" +
+                "firstName='" + getFirstName() + '\'' +
+                ", lastName='" + getLastName() + '\'' +
+                ", age=" + getAge() +
+                ", partner=" + getPartner() +
+                ", maidenName='" + maidenName + '\'' +
+                '}';
     }
 }
